@@ -26,10 +26,10 @@ afterEach(() => {
 });
 
 // Testing to see if proper fields are rendered
-it("has a textarea and a button", () => {
+it("has a textarea and two buttons", () => {
   // Look for how many instances of textarea/button - should be 1 each
   expect(wrapped.find("textarea").length).toEqual(1);
-  expect(wrapped.find("button").length).toEqual(1);
+  expect(wrapped.find("button").length).toEqual(2);
 });
 
 // Groups test with similar setup/teardown
