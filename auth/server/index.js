@@ -9,6 +9,11 @@ const app = express();
 
 // App Setup
 // Getting express working how we want
+// Setting up express middleware
+// Morgan - debugging - logging
+app.use(morgan("combined"));
+// bodyParser - parse requests into JSON
+app.use(bodyParser.json({ type: "*/*" }));
 
 // Server setup
 // Getting our express app to talk to the outside world
