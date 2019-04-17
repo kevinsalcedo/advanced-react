@@ -1,10 +1,10 @@
-const mongooge = require("mongoogse");
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Define our Model
 const userSchema = new Schema({
   // Any string will be lowercased and then validate for uniqueness
-  email: { String, unique: true, lowercase: true },
+  email: { type: String, unique: true, lowercase: true },
   password: String
 });
 
