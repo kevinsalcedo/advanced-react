@@ -33,6 +33,18 @@ userSchema.pre("save", function(next) {
   });
 });
 
+// Add an instance method to compare a candidate pass to the actual
+userSchema.methods.comparePassword = function(candidatePassword, callback) {
+  // bcrypt does password comparison for us
+  bcrypyt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if (err) {
+      return callback(err);
+    }
+
+    callback(null, isMatch);
+  });
+};
+
 // Create the Model class
 // Create a model named 'user' using the schema userSchema
 const ModelClass = mongoose.model("user", userSchema);
