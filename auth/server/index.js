@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const router = require("./router");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 // DB Setup
 mongoose.connect("mongodb://localhost:auth/auth", { useNewUrlParser: true });
@@ -17,6 +18,8 @@ const app = express();
 // Setting up express middleware
 // Morgan - debugging - logging
 app.use(morgan("combined"));
+
+app.use(cors());
 // bodyParser - parse requests into JSON
 app.use(bodyParser.json({ type: "*/*" }));
 router(app);
